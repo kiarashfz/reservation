@@ -16,3 +16,15 @@ class Hotel(BaseModel):
 
     def __str__(self):
         return self.name
+
+
+class Room(BaseModel):
+    class Meta:
+        verbose_name = _('Room')
+        verbose_name_plural = _('Rooms')
+
+    hotel = models.ForeignKey(
+        Hotel,
+        on_delete=models.CASCADE,
+        verbose_name=_('Hotel')
+    )
